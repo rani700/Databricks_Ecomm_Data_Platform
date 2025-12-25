@@ -23,4 +23,5 @@ jobs:
         run: |
           # Use the full path to your Repo folder. 
           # Replace 'your_email@example.com' with your actual Databricks login email.
-           databricks repos update /Repos/ranishwe8a@gmail.com/Databricks_Ecomm_Data_Platform --branch "main"
+           databricks repos update /Workspace/Users/ranishwe8a@gmail.com/Databricks_Ecomm_Data_Platform --branch "main"
+           
