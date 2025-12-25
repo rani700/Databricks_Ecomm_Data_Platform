@@ -21,6 +21,6 @@ jobs:
           DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
         run: |
-          # This tells Databricks to pull the latest changes from GitHub into your Workspace Repos folder
-          # Replace <YOUR_REPO_ID> in the next step
-          databricks repos update 3837203466511054 --branch "main"
+          # Use the full path to your Repo folder. 
+          # Replace 'your_email@example.com' with your actual Databricks login email.
+          databricks repos update /Repos/<your_email@example.com>/Databricks_Ecomm_Data_Platform --branch "main"
