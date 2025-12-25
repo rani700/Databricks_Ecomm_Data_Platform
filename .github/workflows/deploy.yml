@@ -1,0 +1,26 @@
+name: Deploy Notebooks to Databricks
+
+on:
+  push:
+    branches:
+      - main  # Deployment triggers when you push to the main branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Install Databricks CLI
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/databricks/setup-cli/main/install.sh | sh
+
+      - name: Deploy Notebooks
+        env:
+          DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+          DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
+        run: |
+          # This command syncs your GitHub repo to a 'Production' folder in Databricks
+          databricks bundle deploy
