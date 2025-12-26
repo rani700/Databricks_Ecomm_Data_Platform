@@ -1,0 +1,14 @@
+# app.yaml - Deployment Configuration
+name: ecomm-ai-data-agent
+command: [
+  "streamlit",
+  "run",
+  "app.py",
+  "--server.address=0.0.0.0",
+  "--server.port=$PORT"
+]
+env:
+  - name: DATABRICKS_HOST
+    value: "${workspace.host}"
+  - name: CATALOG_NAME
+    value: "ecomm_data_project"
