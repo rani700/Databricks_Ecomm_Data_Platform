@@ -1,14 +1,9 @@
-# app.yaml - Deployment Configuration
+# app.yaml - Simplified for Automatic Auth
 name: ecomm-ai-data-agent
 command: [
-  "streamlit",
-  "run",
-  "app.py",
-  "--server.address=0.0.0.0",
-  "--server.port=$PORT"
+  "sh",
+  "-c",
+  "streamlit run app.py --server.address=0.0.0.0 --server.port=$PORT"
 ]
-env:
-  - name: DATABRICKS_HOST
-    value: "${workspace.host}"
-  - name: CATALOG_NAME
-    value: "ecomm_data_project"
+# We remove the 'env' section for DATABRICKS_HOST because the 
+# App environment provides this automatically to the SDK
